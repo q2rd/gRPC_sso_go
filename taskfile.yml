@@ -1,0 +1,12 @@
+version: "3"
+
+tasks:
+  run:
+    aliases:
+      - run_main
+    desc: "run entry point"
+    cmd: go run cmd/sso/main.go --cfg=./config/local.yml
+
+  migrate:
+    desc: "update db state"
+    cmd: go run ./cmd/migrator --storage-path=./storage/sso.db --migrations-path=./migrations
